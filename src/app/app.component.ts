@@ -6,5 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'services';
+  accounts  = [
+    {
+      name: 'Master account',
+      status: 'active'
+    },
+    {
+      name: 'Testaccount',
+      status: 'inactive'
+    },
+    {
+      name: 'Hidden account',
+      status: 'unknown'
+    }
+  ];
+
+  onAccountAdded(newAccount: {name: string, status: string}){
+    this.accounts.push(newAccount);
+  }
+
+  onStatusChanged(updateInfo: {id: number, newStatus: string}){
+    this.accounts[updateInfo.id].status = updateInfo.newStatus;
+  }
+
+
 }
